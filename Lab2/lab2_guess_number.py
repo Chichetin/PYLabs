@@ -28,13 +28,11 @@ def bin_search(target:int, lst:list[int], check_am: int = 1) -> tuple[int, int] 
         Пара из количества попыток поиска и ответа, или же ошибку
     """
     r: int = len(lst)
-    if r == 1:
-        if lst[0] == target:
-            return check_am, lst[0]
-        else:
-            return "Нет ответа (bin)"
-
-    if target >= lst[r // 2]:
+    if r == 0:
+        return "Нет ответа (bin)"
+    if  target == lst[r // 2]:
+        return check_am, lst[r // 2]
+    elif target > lst[r // 2]:
         return bin_search(target, lst[r//2:], check_am + 1)
     else:
         return bin_search(target, lst[:r//2], check_am + 1)
@@ -58,6 +56,6 @@ def guess_number(target:int, lst:list[int], method='seq') -> tuple[int, int] | s
     if method == 'seq':
         return seq_search(target, lst)
     elif method == 'bin':
-        return guess_number(target, lst)
+        return bin_search(target, lst)
     else:
         return "Ошибка типа поиска"
