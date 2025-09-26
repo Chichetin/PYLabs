@@ -10,17 +10,10 @@ def main():
         - тип поиска (последовательный, или бинарный)
 
     __вывод результатов на экран__
-    :return:
     """
-    pass
 
 
-def guess_number(target, lst, type='seq') -> list[int, int | None]:
-    if type == 'seq':
-        # ищем число последовательно
-        pass
-    elif type == 'bin':
-        # ищем число с помощью бин поиска
-        pass
 
     pass
+
+
