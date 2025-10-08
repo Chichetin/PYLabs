@@ -15,6 +15,8 @@ class TestGuessNumber(unittest.TestCase):
     def test_vanya_bin(self):
         self.assertEqual(guess_number(12, create_by_bounds(0, 16), "bin"), (2, 12))
 
+    # NEED MORE TESTS
+
 # Запуск тестов
 if __name__ == '__main__':
     unittest.main()

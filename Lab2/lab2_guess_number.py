@@ -1,8 +1,9 @@
-def seq_search(target:int, lst:list[int]) -> tuple[int, int] | str:
-    """Последовательный поиск
+def seq_search(target: int, lst: list[int]) -> tuple[int, int] | str:
+    """Последовательный поиск элемента в массиве
 
     Ключевые аргументы:
-        аналогичные функции guess_number
+            target -- int, число, которое нужно угадать
+            lst -- list[int], массив чисел, в котором происходит поиск (необязательно отсортированный)
 
     Возвращает:
         Пара из количества попыток поиска и ответа, или же ошибку
@@ -18,11 +19,13 @@ def seq_search(target:int, lst:list[int]) -> tuple[int, int] | str:
     # если не нашлось -- возвращаем ошибку
     return "Нет ответа (seq)"
 
-def bin_search(target:int, lst:list[int], check_am: int = 1) -> tuple[int, int] | str:
-    """Бинарный поиск
+
+def bin_search(target: int, lst: list[int], check_am: int = 1) -> tuple[int, int] | str:
+    """Бинарный поиск элемента в массиве
 
     Ключевые аргументы:
-        аналогичные функции guess_number
+            target -- int, число, которое нужно угадать
+            lst -- list[int], массив чисел, в котором происходит поиск (необязательно отсортированный)
 
     Возвращает:
         Пара из количества попыток поиска и ответа, или же ошибку
@@ -30,16 +33,15 @@ def bin_search(target:int, lst:list[int], check_am: int = 1) -> tuple[int, int] 
     r: int = len(lst)
     if r == 0:
         return "Нет ответа (bin)"
-    if  target == lst[r // 2]:
+    if target == lst[r // 2]:
         return check_am, lst[r // 2]
     elif target > lst[r // 2]:
-        return bin_search(target, lst[r//2:], check_am + 1)
+        return bin_search(target, lst[r // 2:], check_am + 1)
     else:
-        return bin_search(target, lst[:r//2], check_am + 1)
+        return bin_search(target, lst[:r // 2], check_am + 1)
 
 
-
-def guess_number(target:int, lst:list[int], method='seq') -> tuple[int, int] | str:
+def guess_number(target: int, lst: list[int], method='seq') -> tuple[int, int] | str:
     """Угадать число одним из двух способов
 
 	Ключевые аргументы:
