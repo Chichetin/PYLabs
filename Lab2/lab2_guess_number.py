@@ -35,7 +35,7 @@ def bin_search(
         target (int): Искомое целое число.
         lst (List[int]): Отсортированный список целых чисел.
         check_am (int, optional): Текущее количество выполненных сравнений.
-            По умолчанию 1.
+            Изначально - 1.
 
     Returns:
         Tuple[int, int] | str:
