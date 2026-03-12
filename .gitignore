@@ -1,3 +1,5 @@
 .idea
-small_testing.py
+.venv
+.gitignore
+test.py
 */__pycache__
