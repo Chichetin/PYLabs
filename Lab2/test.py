@@ -139,3 +139,48 @@ def test_plot_line() -> None:
     y = np.array([4, 5, 6])
     plot_line(x, y)
     assert os.path.exists("plots/line_plot.png")
+
+
+## Добавленный тесты ##
+
+def test_matrix_identity_property() -> None:
+    """Проверить свойство единичной матрицы при умножении."""
+    a = create_matrix()
+    identity = np.eye(5)
+    result = matrix_multiply(a, identity)
+    assert np.allclose(result, a)
+
+
+def test_vector_scalar_zero() -> None:
+    """Проверить умножение вектора на ноль."""
+    v = create_vector()
+    result = scalar_multiply(v, 0)
+    assert np.all(result == 0)
+
+
+def test_normalization_range() -> None:
+    """Проверить, что нормализованные данные всегда в пределах [0, 1]."""
+    data = np.random.uniform(-100, 100, size=50)
+    norm = normalize_data(data)
+    assert np.min(norm) >= 0.0
+    assert np.max(norm) <= 1.0
+
+
+def test_matrix_determinant_zero() -> None:
+    """Проверить определитель матрицы с зависимыми строками."""
+    a = np.array([[1, 2], [2, 4]])
+    assert round(matrix_determinant(a), 5) == 0.0
+
+
+def test_transpose_shape() -> None:
+    """Проверить изменение размерности при транспонировании неквадратной матрицы."""
+    m = np.random.rand(3, 2)
+    t = transpose_matrix(m)
+    assert t.shape == (2, 3)
+
+
+def test_elementwise_multiply_by_one() -> None:
+    """Проверить поэлементное умножение на массив из единиц."""
+    v = np.array([5, 10, 15])
+    ones = np.ones(3)
+    assert np.array_equal(elementwise_multiply(v, ones), v)
